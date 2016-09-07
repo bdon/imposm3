@@ -7,6 +7,7 @@ import (
 	"runtime"
 
 	"github.com/omniscale/imposm3/cache/query"
+	"github.com/omniscale/imposm3/cache/repair"
 	"github.com/omniscale/imposm3/config"
 	"github.com/omniscale/imposm3/diff"
 	"github.com/omniscale/imposm3/import_"
@@ -22,6 +23,7 @@ func PrintCmds() {
 	fmt.Println("\timport")
 	fmt.Println("\tdiff")
 	fmt.Println("\tquery-cache")
+	fmt.Println("\trepair-cache")
 	fmt.Println("\tversion")
 }
 
@@ -54,6 +56,8 @@ func Main(usage func()) {
 
 	case "query-cache":
 		query.Query(os.Args[2:])
+	case "repair-cache":
+	  repair.Repair(os.Args[2:])
 	case "version":
 		fmt.Println(Version)
 		os.Exit(0)
